@@ -1,4 +1,5 @@
 *.o
+*.d
 *.ba
 *.exe
 *.txt
@@ -6,4 +7,3 @@
 *.orig
 *.dbc
 *.DBC
-main
