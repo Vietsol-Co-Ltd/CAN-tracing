@@ -1,6 +1,6 @@
 /**
  * @file blf_reader.cc
- * @author Petter Strandh (https://github.com/PetStr)
+ * @author Petter Strandh (petter.strandh@gmail.com)
  * @brief
  * @version 0.1
  * @date 2024-12-27
@@ -39,6 +39,7 @@
 #include <vector>
 #include <zlib.h>
 
+// hexdump -v -C -n 512 truck02.blf
 
 namespace lblf
 {
@@ -279,8 +280,8 @@ auto blf_reader::getfileStatistics() const -> const struct fileStatistics&
     return fileStat;
 }
 
-auto
-blf_reader::getBaseHeadRead() const -> size_t
+
+auto blf_reader::getBaseHeadRead() const -> size_t
 {
     return BaseHeaderRead;
 }
