@@ -1,6 +1,6 @@
 /**
  * @file blf_reader.cc
- * @author Petter Strandh (petter.strandh@gmail.com)
+ * @author Petter Strandh (https://github.com/PetStr)
  * @brief
  * @version 0.1
  * @date 2024-12-27
