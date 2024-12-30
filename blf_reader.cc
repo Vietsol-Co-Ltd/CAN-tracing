@@ -39,7 +39,6 @@
 #include <vector>
 #include <zlib.h>
 
-// hexdump -v -C -n 512 truck02.blf
 
 namespace lblf
 {
