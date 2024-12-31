@@ -27,7 +27,7 @@ Which is subsequent followed by a two possible ObjectHeaders. Followed by a dyna
 ## The Log Container
 All data should be wrapped within a LogContainer. 
 
-The LogContainer can uncompressed or compressed with zlib. The zlib LogContainer will contain a block of 131072 (0x20000) bytes. The zlib blocks will cut in the middle of the under laying data stream so that in order to process, a continuous data flow must be created to read the underlying data.
+The LogContainer can be uncompressed or compressed with zlib. The zlib LogContainer will contain a block of 131072 (0x20000) bytes. The zlib blocks will cut in the middle of the under laying data stream so that in order to process, a continuous data flow must be created to read the underlying data.
 
 ## Using lblf.
 
@@ -89,4 +89,5 @@ The main thing is to handel all the possible ~130 different types of `objectType
 By looking into `binlog_objects.h` one can see the structs on the early versions of BLF. However this is not always true. best way is to look into `vector_blf` reference to see what is done there. `blf_structs.hh` contains a small subset of the various structs. It is not complete!
 
 Happy Coding
+
 PetStr
