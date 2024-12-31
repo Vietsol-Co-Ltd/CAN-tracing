@@ -104,7 +104,7 @@ If a certain signal from a CAN is to be evaluated I have found [dbcc](https://gi
 
 * Creating BLF_writer class for storing data.
 * Now when reading a uncompressed LogContainer all data is retrieved into the internal buffer. Intend to make  user adjustable or use the standard length for zlib container to keep the memory footprint a bit smaller. This is not a problem for normal PCs however, might be an issue for smaller foot print computers. It can be an issue for PCs if the BLF are very large.
-* Working on ideas to smother handle the different object types. There are ideas with `C++ concepts` that will be able to handle various types without virtual functions calls.
+* Working on ideas to smoother handle the different object types. There are ideas with `C++ concepts` that will be able to handle various types without virtual functions calls.
 * I am a bit tempted to look into Godbolting some of the code in the hot path for better performance. 
 * Make a Python wrapper so that is it can improve the life for evaluating data.
 
