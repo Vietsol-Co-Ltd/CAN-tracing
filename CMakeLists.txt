@@ -23,3 +23,5 @@ target_link_libraries(read -lz )
 add_executable(object_types object_types.cc print.cc blf_reader.cc)
 target_link_libraries(object_types -lz )
 
+add_executable(read_blf read_blf.cc print.cc blf_reader.cc)
+target_link_libraries(read_blf -lz )
