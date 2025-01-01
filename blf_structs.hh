@@ -4,14 +4,6 @@
 #include <array>
 #include <cstdint>
 
-
-/*
-translate
-WORD = uint16_t
-DWORD = uint32_t
-BYTE = uint8_t
-*/
-
 namespace lblf
 {
 
