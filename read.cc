@@ -37,7 +37,7 @@ void doit2(const std::string &filename)
             const auto data = reader.data();
             if (data.base_header.objectType == lblf::ObjectType_e::CAN_MESSAGE2)
                 {
-                    struct lblf::CanMessage2_obh can2;
+                    struct lblf::blf_struct::CanMessage2_obh can2;
                     if (sizeof(can2) <= data.payload.size())
                         {
                             lblf::read_blf_struct(data, can2);
@@ -59,7 +59,7 @@ void doit3(const std::string &filename)
             const auto data = reader.data();
             if (data.base_header.objectType == lblf::ObjectType_e::APP_TEXT)
                 {
-                    struct lblf::AppText_obh Apptext;
+                    struct lblf::blf_struct::AppText_obh Apptext;
                     if (sizeof(Apptext) <= data.payload.size())
                         {
                             read_template(data.payload.data(), Apptext);

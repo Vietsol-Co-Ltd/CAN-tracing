@@ -47,11 +47,6 @@ namespace lblf
 namespace
 {
 
-    const uint32_t FileSignature = 0x47474F4C;   // LOGG
-    const uint32_t ObjectSignature = 0x4A424F4C; // LOBJ
-    const uint32_t defaultContainerSize = 0x20000;
-
-
     auto getfileLength(std::fstream &fileStream) -> uint32_t
     {
         fileStream.seekg(0, std::fstream::end);
@@ -79,7 +74,7 @@ namespace
     }
 
 
-    auto read_baseheader(std::deque<char> &que, lblf::BaseHeader &ohb) -> bool
+    auto read_baseheader(std::deque<char> &que, lblf::blf_struct::BaseHeader &ohb) -> bool
     {
         consume_que(que, ohb.ObjSign);
         if (ohb.ObjSign != ObjectSignature)
@@ -96,9 +91,9 @@ namespace
     }
 
 
-    auto read_logcontainer(std::fstream &fileStream, LogContainer &lc, const BaseHeader &ohb) -> bool
+    auto read_logcontainer(std::fstream &fileStream, blf_struct::LogContainer &lc, const blf_struct::BaseHeader &ohb) -> bool
     {
-        fileStream.read(reinterpret_cast<char *>(&lc), sizeof(LogContainer));
+        fileStream.read(reinterpret_cast<char *>(&lc), sizeof(blf_struct::LogContainer));
 
         if (lc.compressionMethod == compressionMethod_e::uncompressed)
             {
@@ -140,7 +135,7 @@ auto blf_reader::read_fileStatistics() -> bool
     return true;
 }
 
-auto blf_reader::read_baseHeader(BaseHeader &ohb) -> bool
+auto blf_reader::read_baseHeader(blf_struct::BaseHeader &ohb) -> bool
 {
     uint32_t current_position = fileStream.tellg();
     if (current_position == fileLength)
@@ -170,7 +165,7 @@ auto blf_reader::fill_deque() -> bool
             return false;
         }
 
-    struct BaseHeader ohb;
+    struct blf_struct::BaseHeader ohb;
     if (read_baseHeader(ohb))
         {
             BaseHeaderRead++;
@@ -182,14 +177,14 @@ auto blf_reader::fill_deque() -> bool
 
     if (ohb.objectType == ObjectType_e::LOG_CONTAINER)
         {
-            struct LogContainer lc;
+            struct blf_struct::LogContainer lc;
             read_logcontainer(fileStream, lc, ohb);
             // print(std::cout, lc);
 
             if (lc.compressionMethod == compressionMethod_e::zlib)
                 {
                     std::vector<char> container_data;
-                    const auto compressedBlobSize = ohb.objSize - ohb.headerSize - sizeof(LogContainer);
+                    const auto compressedBlobSize = ohb.objSize - ohb.headerSize - sizeof(blf_struct::LogContainer);
 
                     container_data.resize(compressedBlobSize);
 
@@ -217,7 +212,7 @@ auto blf_reader::fill_deque() -> bool
             else
                 {
                     std::vector<char> container_data;
-                    const auto uncompressedBlobSize = ohb.objSize - ohb.headerSize - sizeof(LogContainer);
+                    const auto uncompressedBlobSize = ohb.objSize - ohb.headerSize - sizeof(blf_struct::LogContainer);
 
                     container_data.resize(uncompressedBlobSize);
 
@@ -275,7 +270,7 @@ auto blf_reader::next() -> bool
 }
 
 
-auto blf_reader::getfileStatistics() const -> const struct fileStatistics&
+auto blf_reader::getfileStatistics() const -> const struct blf_struct::fileStatistics &
 {
     return fileStat;
 }
@@ -290,7 +285,7 @@ auto blf_reader::getBaseHeadRead() const -> size_t
 auto blf_reader::data() -> struct lblf::lobj
 {
     struct lblf::lobj result;
-    if (logcontainer_que.size() < sizeof(BaseHeader))
+    if (logcontainer_que.size() < sizeof(blf_struct::BaseHeader))
         {
             fill_deque();
         }

@@ -18,7 +18,7 @@ void read_all_candata(const std::string &filename)
                 {
                 case lblf::ObjectType_e::CAN_MESSAGE:
                     {
-                        struct lblf::CanMessage_obh can;
+                        struct lblf::blf_struct::CanMessage_obh can;
                         lblf::read_blf_struct(data, can);
                         cmm.got_data = true;
                         cmm.obh = can.obh;
@@ -33,7 +33,7 @@ void read_all_candata(const std::string &filename)
 
                 case lblf::ObjectType_e::CAN_MESSAGE2:
                     {
-                        struct lblf::CanMessage2_obh can2;
+                        struct lblf::blf_struct::CanMessage2_obh can2;
                         lblf::read_blf_struct(data, can2);
                         cmm.got_data = true;
                         cmm.obh = can2.obh;

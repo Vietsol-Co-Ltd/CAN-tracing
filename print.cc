@@ -372,35 +372,35 @@ std::string print(compressionMethod_e cm)
 }
 
 
-auto print(ObjectFlags_e of) -> std::string
+auto print(blf_struct::ObjectFlags_e of) -> std::string
 {
     switch (of)
         {
-        case ObjectFlags_e::TimeTenMics:
+        case blf_struct::ObjectFlags_e::TimeTenMics:
             return "Time Ten Microseconds";
-        case ObjectFlags_e::TimeNano:
+        case blf_struct::ObjectFlags_e::TimeNano:
             return "Time in Nanoseconds";
         }
     return "Unknown Timeflags";
 }
 
 
-auto print(timeStampStatus_e tss) -> std::string
+auto print(blf_struct::timeStampStatus_e tss) -> std::string
 {
     switch (tss)
         {
-        case timeStampStatus_e::original:
+        case blf_struct::timeStampStatus_e::original:
             return "Original";
-        case timeStampStatus_e::SwGen:
+        case blf_struct::timeStampStatus_e::SwGen:
             return "Software Generated";
-        case timeStampStatus_e::User:
+        case blf_struct::timeStampStatus_e::User:
             return "User defined";
         }
     return "Unknown time stamp status.";
 }
 
 
-void print(std::ostream &stream, const sysTime_t &ts)
+void print(std::ostream &stream, const blf_struct::sysTime_t &ts)
 {
     stream << std::dec;
     stream << "year: " << (int) ts.year;
@@ -415,7 +415,7 @@ void print(std::ostream &stream, const sysTime_t &ts)
 }
 
 
-void print(std::ostream &stream, const fileStatistics &os)
+void print(std::ostream &stream, const blf_struct::fileStatistics &os)
 {
     stream << "os.FileSign           " << std::hex << static_cast<uint64_t>(os.FileSign) << '\n';
     stream << "os.StatSize           " << static_cast<uint64_t>(os.StatSize);
@@ -441,7 +441,7 @@ void print(std::ostream &stream, const fileStatistics &os)
 }
 
 
-void print(std::ostream &stream, const BaseHeader &ohb)
+void print(std::ostream &stream, const blf_struct::BaseHeader &ohb)
 {
     stream << "BaseHeader ";
     // s << "ObjSign " << std::hex << (int)ohb.ObjSign;
@@ -460,7 +460,7 @@ void print(std::ostream &stream, const BaseHeader &ohb)
 }
 
 
-void print(std::ostream &stream, const ObjectHeader2 &oh2)
+void print(std::ostream &stream, const blf_struct::ObjectHeader2 &oh2)
 {
     stream << "ObjectHeader2: ";
     stream << std::dec;
@@ -473,7 +473,7 @@ void print(std::ostream &stream, const ObjectHeader2 &oh2)
 }
 
 
-void print(std::ostream &stream, const ObjectHeader &oh)
+void print(std::ostream &stream, const blf_struct::ObjectHeader &oh)
 {
     stream << "ObjectHeader : ";
     stream << std::dec;
@@ -506,7 +506,7 @@ void print(std::ostream &stream, const ObjectHeaderCarry &ohc)
 }
 
 
-void print(std::ostream &stream, const LogContainer &lc)
+void print(std::ostream &stream, const blf_struct::LogContainer &lc)
 {
     stream << "LogContainer : ";
     stream << std::dec;
@@ -516,7 +516,7 @@ void print(std::ostream &stream, const LogContainer &lc)
 }
 
 
-void print(std::ostream &stream, const CanMessage &cm)
+void print(std::ostream &stream, const blf_struct::CanMessage &cm)
 {
     stream << "CanMessage : ";
     stream << std::dec;
@@ -533,7 +533,7 @@ void print(std::ostream &stream, const CanMessage &cm)
 }
 
 
-void print(std::ostream &stream, const CanOverload &co)
+void print(std::ostream &stream, const blf_struct::CanOverload &co)
 {
     stream << "CanOverload : ";
     stream << std::dec;
@@ -544,7 +544,7 @@ void print(std::ostream &stream, const CanOverload &co)
 }
 
 
-void print(std::ostream &stream, const CanOverload_short &co)
+void print(std::ostream &stream, const blf_struct::CanOverload_short &co)
 {
     stream << "CanOverload : ";
     stream << std::dec;
@@ -554,7 +554,7 @@ void print(std::ostream &stream, const CanOverload_short &co)
 }
 
 
-void print(std::ostream &stream, const CanMessage2 &cm2)
+void print(std::ostream &stream, const blf_struct::CanMessage2 &cm2)
 {
     stream << "CanMessage2 : ";
     stream << "channel: " << std::dec << (int) cm2.channel;
@@ -570,7 +570,7 @@ void print(std::ostream &stream, const CanMessage2 &cm2)
 }
 
 
-void print(std::ostream &stream, const CanMessage2_obh &cm2)
+void print(std::ostream &stream, const blf_struct::CanMessage2_obh &cm2)
 {
     stream << "CanMessage2 : ";
     stream << "channel: " << std::dec << (int) cm2.channel;
@@ -586,7 +586,7 @@ void print(std::ostream &stream, const CanMessage2_obh &cm2)
 }
 
 
-void print(std::ostream &stream, const AppTrigger &at)
+void print(std::ostream &stream, const blf_struct::AppTrigger &at)
 {
     stream << "Apptrigger: ";
     stream << std::dec;
@@ -599,7 +599,7 @@ void print(std::ostream &stream, const AppTrigger &at)
 }
 
 
-void print(std::ostream &stream, const AppText &at)
+void print(std::ostream &stream, const blf_struct::AppText &at)
 {
     stream << "AppText: ";
     stream << std::dec;
@@ -609,7 +609,7 @@ void print(std::ostream &stream, const AppText &at)
 }
 
 
-void print(std::ostream &stream, const reserved_5 &r)
+void print(std::ostream &stream, const blf_struct::reserved_5 &r)
 {
     stream << "Reserved_5: ";
     for (auto a: r.data)
@@ -620,7 +620,7 @@ void print(std::ostream &stream, const reserved_5 &r)
 }
 
 
-void print(std::ostream &stream, const CanError &cfe)
+void print(std::ostream &stream, const blf_struct::CanError &cfe)
 {
     stream << "CanError: ";
     stream << std::dec;
@@ -631,7 +631,7 @@ void print(std::ostream &stream, const CanError &cfe)
 }
 
 
-void print(std::ostream &stream, const CanError_short &cfe)
+void print(std::ostream &stream, const blf_struct::CanError_short &cfe)
 {
     stream << "CanError_short: ";
     stream << std::dec;
@@ -641,7 +641,7 @@ void print(std::ostream &stream, const CanError_short &cfe)
 }
 
 
-void print(std::ostream &stream, const CANErrorFrameExt &ce)
+void print(std::ostream &stream, const blf_struct::CANErrorFrameExt &ce)
 {
     stream << "mChannel: " << static_cast<int>(ce.Channel);
     stream << " mLength: " << (int) ce.Length;
@@ -662,7 +662,7 @@ void print(std::ostream &stream, const CANErrorFrameExt &ce)
 }
 
 
-void print(std::ostream &s, const CANDriverStatistic &can_stat)
+void print(std::ostream &s, const blf_struct::CANDriverStatistic &can_stat)
 {
     s << std::dec;
     s << "mChannel: " << can_stat.mChannel << '\n';
@@ -676,21 +676,30 @@ void print(std::ostream &s, const CANDriverStatistic &can_stat)
 }
 
 
-void print(std::ostream &stream, const lblf::CanMessage_common &cm) 
+void print(std::ostream &stream, const lblf::CanMessage_common &cm)
 {
     stream << "CAN: ";
     stream << std::dec;
     stream << "T: ";
-    constexpr double one_to_nanoseconds = 1/1000000000.0;
-    stream << static_cast<double> (cm.obh.objectTimeStamp)* one_to_nanoseconds;
+    constexpr double one_to_nanoseconds = 1 / 1000000000.0;
+    stream << static_cast<double>(cm.obh.objectTimeStamp) * one_to_nanoseconds;
     stream << ", ch: " << (int) cm.channel;
     stream << ", flags: " << std::dec << (int) cm.flags;
     stream << ", dlc: " << std::dec << (int) cm.dlc;
     stream << ", id: 0x" << std::hex << (int) cm.id;
     stream << ", data: ";
-    for (size_t i = 1; i < cm.dlc; ++i)
+    uint8_t validated_dlc = cm.dlc;
+    if (validated_dlc > cm.data.size())
         {
-            stream << " " << std::hex << std::setfill('0') << std::setw(2) <<  (int)cm.data.at(i);
+            validated_dlc = cm.data.size();
+        }
+    else
+        {
+            validated_dlc = cm.dlc;
+        }
+    for (uint8_t i = 0; i < validated_dlc; ++i)
+        {
+            stream << " " << std::hex << std::setfill('0') << std::setw(2) << (int) cm.data.at(i);
         }
     stream << '\n';
 }

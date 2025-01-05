@@ -28,3 +28,6 @@ target_link_libraries(read_blf -lz )
 
 add_executable(read_can read_can.cc print.cc blf_reader.cc)
 target_link_libraries(read_can -lz )
+
+add_executable(read_filestatistics read_filestatistics.cc print.cc blf_reader.cc)
+target_link_libraries(read_filestatistics -lz )

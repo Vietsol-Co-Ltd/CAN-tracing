@@ -1,23 +1,6 @@
 
 #include "blf_reader.hh"
-#include "blf_structs.hh"
 #include "print.hh"
-
-
-void read_blf(const std::string &filename)
-{
-    lblf::blf_reader reader(filename);
-    while (reader.next())
-        {
-            struct lblf::lobj data = reader.data();
-            if (data.base_header.objectType == lblf::ObjectType_e::CAN_MESSAGE2)
-                {
-                    struct lblf::blf_struct::CanMessage2_obh can2;
-                    lblf::read_blf_struct(data, can2);
-                    lblf::print::print(std::cout, can2);
-                }
-        }
-}
 
 
 auto main(int argc, char *argv[]) -> int
@@ -29,7 +12,8 @@ auto main(int argc, char *argv[]) -> int
             try
                 {
                     const std::string filename(argv[1]);
-                    read_blf(filename);
+                    lblf::blf_reader reader(filename);
+                    lblf::print::print(std::cout, reader.getfileStatistics());
                 }
             catch (const std::runtime_error &error)
                 {

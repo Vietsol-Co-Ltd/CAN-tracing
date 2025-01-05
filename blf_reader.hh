@@ -5,27 +5,15 @@
 #include <cstring>
 #include <deque>
 #include <fstream>
-#include <vector>
 
 namespace lblf
 {
 
 
 /**
- * @brief lobj frame struct
- * 
- */
-struct lobj
-{
-    BaseHeader base_header;
-    std::vector<char> payload;
-};
-
-
-/**
  * @brief Static lobj reading function
- * 
- * @tparam type_data typically a struct with that aligns with blf type 
+ *
+ * @tparam type_data typically a struct with that aligns with blf type
  * @param indata incoming lobj frame
  * @param blf_struct_data var parameter of type_data
  * @return size_t Number of read bytes
@@ -46,18 +34,18 @@ auto read_blf_struct(const struct lobj &indata, type_data &blf_struct_data) -> s
 
 /**
  * @brief blf_reader class
- * 
+ *
  */
 class blf_reader
 {
 private:
     std::fstream fileStream;
     std::deque<char> logcontainer_que;
-    fileStatistics fileStat;
+    blf_struct::fileStatistics fileStat;
     uint32_t fileLength {0};
     size_t BaseHeaderRead {0};
     auto fill_deque() -> bool;
-    auto read_baseHeader(BaseHeader &ohb) -> bool;
+    auto read_baseHeader(blf_struct::BaseHeader &ohb) -> bool;
     auto read_fileStatistics() -> bool;
 
 public:
@@ -69,7 +57,7 @@ public:
     ~blf_reader();
     auto next() -> bool;
     auto data() -> struct lobj;
-    auto getfileStatistics() const -> const struct fileStatistics&;
+    auto getfileStatistics() const -> const struct blf_struct::fileStatistics &;
     auto getBaseHeadRead() const -> size_t;
 };
 
