@@ -250,6 +250,12 @@ auto blf_reader::fill_deque() -> bool
                             fill_deque_direct(fileStream, logcontainer_que, defaultContainerSize);
                             rest_of_data = uncompressedBlobSize - defaultContainerSize;
                         }
+                    else
+                        {
+                            split_read = false;
+                            fill_deque_direct(fileStream, logcontainer_que, uncompressedBlobSize);
+                            fileStream.seekg(ohb.objSize % 4, std::ios_base::cur);
+                        }
                 }
         }
     else
