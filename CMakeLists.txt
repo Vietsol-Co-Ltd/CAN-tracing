@@ -17,7 +17,7 @@ find_package(ZLIB)
 
 if (MSVC)
     # warning level 4
-    add_compile_options(/W4)
+    add_compile_options(/W4 /std:c++20)
 else()
     # additional warnings
     add_compile_options(-Wall -Wno-switch -std=c++20 -Wno-deprecated-copy -Wdeprecated-enum-enum-conversion -Wmisleading-indentation -Wc++20-extensions  -Wshadow -Wconversion)
