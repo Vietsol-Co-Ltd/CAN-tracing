@@ -273,14 +273,14 @@ namespace blf_struct
     //  Combine direction and RTR into flags
     constexpr auto CAN_MSG_FLAGS(uint8_t dir, uint8_t rtr) -> uint8_t
     {
-        return ((rtr & 0x01U) << 7U) | (dir & 0x0FU);
+        return static_cast<uint8_t>((rtr & 0x01U) << 7U) | (dir & 0x0FU);
     }
 
     // CAN_MSG_FLAGS_EXT	Extended Identifier	Standard (0) or Extended (1).
     //  Combine direction, RTR, WU, and NERR into extended flags
     constexpr auto CAN_MSG_FLAGS_EXT(uint8_t dir, uint8_t rtr, uint8_t wu, uint8_t nerr) -> uint8_t
     {
-        return ((rtr & 0x01U) << 7U) | ((wu & 0x01U) << 6U) | ((nerr & 0x01U) << 5U) | (dir & 0x0FU);
+        return static_cast<uint8_t>(((rtr & 0x01U) << 7U) | ((wu & 0x01U) << 6U) | ((nerr & 0x01U) << 5U) | (dir & 0x0FU));
     }
 
     // CAN_FD_MSG_EDL	CAN FD Mode	Indicates FD protocol.

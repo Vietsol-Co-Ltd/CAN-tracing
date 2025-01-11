@@ -691,7 +691,7 @@ void print(std::ostream &stream, const lblf::CanMessage_common &cm)
     uint8_t validated_dlc = cm.dlc;
     if (validated_dlc > cm.data.size())
         {
-            validated_dlc = cm.data.size();
+            validated_dlc = static_cast<uint8_t>(cm.data.size());
         }
     else
         {

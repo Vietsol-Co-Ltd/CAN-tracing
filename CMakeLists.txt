@@ -15,7 +15,7 @@ set(CXX_STANDARD 20)
 
 find_package(ZLIB)
 
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -Wno-switch -std=c++20")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -Wno-switch -std=c++20 -Wno-deprecated-copy -Wdeprecated-enum-enum-conversion -Wmisleading-indentation -Wc++20-extensions  -Wshadow -Wconversion")
 
 add_executable(read read.cc print.cc blf_reader.cc)
 target_link_libraries(read -lz )

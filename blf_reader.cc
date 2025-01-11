@@ -33,8 +33,8 @@
 
 #include "blf_reader.hh"
 #include "blf_structs.hh"
-#include "print.hh"
 #include <cstring>
+#include <iostream>
 #include <stdexcept>
 #include <vector>
 #include <zlib.h>
@@ -47,10 +47,10 @@ namespace lblf
 namespace
 {
 
-    auto getfileLength(std::fstream &fileStream) -> uint32_t
+    auto getfileLength(std::fstream &fileStream) -> int32_t
     {
         fileStream.seekg(0, std::fstream::end);
-        const uint32_t length = fileStream.tellg();
+        const auto length = static_cast<int32_t>(fileStream.tellg());
         fileStream.seekg(0, std::fstream::beg);
         return length;
     }
@@ -147,7 +147,7 @@ auto blf_reader::read_fileStatistics() -> bool
 
 auto blf_reader::read_baseHeader(blf_struct::BaseHeader &ohb) -> bool
 {
-    uint32_t current_position = fileStream.tellg();
+    auto current_position = static_cast<uint32_t>(fileStream.tellg());
     if (current_position == fileLength)
         {
             return false;
@@ -216,7 +216,7 @@ auto blf_reader::fill_deque() -> bool
             if (lc.compressionMethod == compressionMethod_e::zlib)
                 {
                     std::vector<char> container_data;
-                    const auto compressedBlobSize = ohb.objSize - ohb.headerSize - sizeof(blf_struct::LogContainer);
+                    const auto compressedBlobSize = static_cast<uint32_t>(ohb.objSize - ohb.headerSize - sizeof(blf_struct::LogContainer));
 
                     container_data.resize(compressedBlobSize);
 
@@ -248,12 +248,12 @@ auto blf_reader::fill_deque() -> bool
                         {
                             split_read = true;
                             fill_deque_direct(fileStream, logcontainer_que, defaultContainerSize);
-                            rest_of_data = uncompressedBlobSize - defaultContainerSize;
+                            rest_of_data = static_cast<uint32_t>(uncompressedBlobSize - defaultContainerSize);
                         }
                     else
                         {
                             split_read = false;
-                            fill_deque_direct(fileStream, logcontainer_que, uncompressedBlobSize);
+                            fill_deque_direct(fileStream, logcontainer_que, static_cast<uint32_t>(uncompressedBlobSize));
                             fileStream.seekg(ohb.objSize % 4, std::ios_base::cur);
                         }
                 }
@@ -261,7 +261,7 @@ auto blf_reader::fill_deque() -> bool
     else
         {
             // I should never end up here
-            const int32_t bytes_to_jump = ohb.objSize - ohb.headerSize + (ohb.objSize % 4);
+            const auto bytes_to_jump = static_cast<int32_t>(ohb.objSize - ohb.headerSize + (ohb.objSize % 4));
             std::cout << "No LogContainer on fileStream, to jump: " << bytes_to_jump << '\n';
             fileStream.seekg(bytes_to_jump, std::ios_base::cur);
         }
@@ -280,7 +280,7 @@ blf_reader::blf_reader(const std::string &filename)
 
     if (fileStream)
         {
-            fileLength = getfileLength(fileStream);
+            fileLength = static_cast<uint32_t>(getfileLength(fileStream));
             if (read_fileStatistics())
                 {
                     // lblf::print::print(std::cout, fileStat);
