@@ -2,7 +2,8 @@
 
 `lblf` is an implementation for reading Vector BLF files. 
 
-* Simple and fast program for special use cases.
+* Simple and fast program for special use cases. 
+* 7X to 30X faster than some reference implementations.
 * To support all major platforms, right now only for little endian. 
 
 ## Introduction 
@@ -51,7 +52,7 @@ struct lblf::lobj
 
 void read_blf()
 {
-  lblf::blf_reader reader("sample.blf");
+    lblf::blf_reader reader("sample.blf");
     while (reader.next())
         {
             struct lblf::lobj data = reader.data();
@@ -100,10 +101,13 @@ The older loggers tends to stores in CAN_MESSAGE objectType, and new implementat
 
 If a certain signal from a CAN is to be evaluated I have found [dbcc](https://github.com/howerj/dbcc) to be very helpful. Howerj´s software will convert a Vector `dbc` file into `C`. I have found to simply look into the generated code and then cut and paste the needed signals into the evaluating code will help with handling tricky conversions and bit shifts. 
 
+## Latest improvements
+
+Implemented changes so that now when reading an uncompressed LogContainer it is read in smaller portions, there were issues on Windows when reading large dataset. There were no change in execution speed due to the change.
+
 ## ToDo's
 
-* Creating BLF_writer class for storing data.
-* Now when reading a uncompressed LogContainer all data is retrieved into the internal buffer. Intend to make  user adjustable or use the standard length for zlib container to keep the memory footprint a bit smaller. This is not a problem for normal PCs however, might be an issue for smaller foot print computers. It can be an issue for PCs if the BLF are very large.
+* Creating BLF_writer class for storing data. *in the works*
 * Working on ideas to smoother handle the different object types. There are ideas with `C++ concepts` that will be able to handle various types without virtual functions calls.
 * I am a bit tempted to look into Godbolting some of the code in the hot path for better performance. 
 * Make a Python wrapper so that is it can improve the life for evaluating data.
