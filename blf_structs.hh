@@ -18,7 +18,7 @@ namespace lblf
 const uint32_t FileSignature = 0x47474F4C;   // LOGG
 const uint32_t ObjectSignature = 0x4A424F4C; // LOBJ
 const uint32_t defaultContainerSize = 0x20000;
-const uint32_t StatSize = 144; //Size of the beginning fileStats
+const uint32_t StatSize = 144;         // Size of the beginning fileStats
 const uint32_t applicationBuild = 123; // Some magic number
 
 enum class exit_codes : uint32_t
@@ -396,7 +396,7 @@ namespace blf_struct
         [[nodiscard]] auto get_flags() const -> uint8_t { return flags; };
         [[nodiscard]] auto get_dlc() const -> uint8_t { return dlc; };
         [[nodiscard]] auto get_id() const -> uint32_t { return id; };
-        [[nodiscard]] auto get_data() const -> std::array<uint8_t, 8> { return data; };
+        [[nodiscard]] auto get_data() const -> const std::array<uint8_t, 8> & { return data; };
     };
 
     struct CanError
@@ -499,7 +499,7 @@ namespace blf_struct
         [[nodiscard]] auto get_flags() const -> uint8_t { return flags; };
         [[nodiscard]] auto get_dlc() const -> uint8_t { return dlc; };
         [[nodiscard]] auto get_id() const -> uint32_t { return id; };
-        [[nodiscard]] auto get_data() const -> std::array<uint8_t, 8> { return data; };
+        [[nodiscard]] auto get_data() const -> const std::array<uint8_t, 8> & { return data; };
     };
 
     enum class AppTriggerFlags : uint16_t
@@ -612,7 +612,7 @@ struct CanMessage_common
     [[nodiscard]] auto get_flags() const -> uint8_t { return flags; };
     [[nodiscard]] auto get_dlc() const -> uint8_t { return dlc; };
     [[nodiscard]] auto get_id() const -> uint32_t { return id; };
-    [[nodiscard]] auto get_data() const -> std::array<uint8_t, 8> { return data; };
+    [[nodiscard]] auto get_data() const -> const std::array<uint8_t, 8> & { return data; };
 };
 
 

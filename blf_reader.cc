@@ -97,7 +97,7 @@ namespace
 
         if (lc.compressionMethod == compressionMethod_e::uncompressed)
             {
-                lc.unCompressedFileSize = ohb.objSize - sizeof(lc.compressionMethod) - sizeof(lc.reserv1) - sizeof(lc.reserv2) - sizeof(lc.unCompressedFileSize) - sizeof(lc.reserv3);
+                lc.unCompressedFileSize = static_cast<uint32_t>(ohb.objSize - sizeof(lc.compressionMethod) - sizeof(lc.reserv1) - sizeof(lc.reserv2) - sizeof(lc.unCompressedFileSize) - sizeof(lc.reserv3));
             }
 
         return true;
@@ -140,7 +140,7 @@ auto blf_reader::read_fileStatistics() -> bool
     fileStream.read(reinterpret_cast<char *>(&fileStat.meas_start_time), sizeof(fileStat.meas_start_time));
     fileStream.read(reinterpret_cast<char *>(&fileStat.last_obj_time), sizeof(fileStat.last_obj_time));
     fileStream.read(reinterpret_cast<char *>(&fileStat.fileSize_less115), sizeof(fileStat.fileSize_less115));
-    const uint32_t offset = fileStat.StatSize - sizeof(fileStat);
+    const auto offset = static_cast<uint32_t>(fileStat.StatSize - sizeof(fileStat));
     fileStream.seekg(offset, std::ios_base::cur);
     return true;
 }
