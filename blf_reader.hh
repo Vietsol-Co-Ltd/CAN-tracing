@@ -56,7 +56,7 @@ public:
     explicit blf_reader(const std::string &filename);
     ~blf_reader();
     auto next() -> bool;
-    auto data() -> struct lobj;
+    auto data() -> lblf::lobj;
     auto getfileStatistics() const -> const struct blf_struct::fileStatistics &;
     auto getBaseHeadRead() const -> size_t;
 };

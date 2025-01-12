@@ -320,7 +320,7 @@ auto blf_reader::getBaseHeadRead() const -> size_t
 
 auto blf_reader::data() -> struct lblf::lobj
 {
-    struct lblf::lobj result;
+    lblf::lobj result;
     if (logcontainer_que.size() < sizeof(blf_struct::BaseHeader))
         {
             fill_deque();

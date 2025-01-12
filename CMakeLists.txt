@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.29)
 
 project(lblf VERSION 0.3 LANGUAGES CXX)
 
@@ -10,14 +10,13 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 set(CMAKE_CXX_STANDARD 20)
-set(CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+#set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+#set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
-find_package(ZLIB)
+find_package(ZLIB REQUIRED)
 
 if (MSVC)
     # warning level 4
@@ -33,8 +32,6 @@ message(STATUS "C++ Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
 message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 
-
-#set(CMAKE_CXX_FLAGS "-Wall -Wno-switch -std=c++20 -Wno-deprecated-copy -Wdeprecated-enum-enum-conversion -Wmisleading-indentation -Wc++20-extensions  -Wshadow -Wconversion")
 
 add_executable(read read.cc print.cc blf_reader.cc)
 target_link_libraries(read PRIVATE ZLIB::ZLIB )
