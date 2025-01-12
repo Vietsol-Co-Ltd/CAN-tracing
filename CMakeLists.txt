@@ -20,10 +20,10 @@ find_package(ZLIB REQUIRED)
 
 if (MSVC)
     # warning level 4
-    add_compile_options(/W4)
+    #add_compile_options(/W4)
 else()
     # additional warnings
-    add_compile_options(-Wall -Wno-switch -Wno-deprecated-copy -Wdeprecated-enum-enum-conversion -Wmisleading-indentation -Wc++20-extensions  -Wshadow -Wconversion)
+    #add_compile_options(-Wall -Wno-switch -Wno-deprecated-copy -Wdeprecated-enum-enum-conversion -Wmisleading-indentation -Wc++20-extensions  -Wshadow -Wconversion)
 endif()
 
 message(STATUS "CMake Version: ${CMAKE_VERSION}")
