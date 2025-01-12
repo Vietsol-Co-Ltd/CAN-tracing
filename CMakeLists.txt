@@ -16,6 +16,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 #set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
+include(FetchContent)
+
+FetchContent_Declare(
+    zlib
+    URL https://zlib.net/zlib1211.zip
+)
+FetchContent_MakeAvailable(zlib)
+
 find_package(ZLIB REQUIRED)
 
 if (MSVC)
