@@ -1,0 +1,53 @@
+{
+    "CAN": [
+        {
+            "db_name": "14_Info_CAN_Matrix_v11.4.9.dbc",
+            "selected_channel": "CAN  7",
+            "selected_bus": "Info",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/14_Info_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "15_Body_CAN_Matrix_v11.4.9.dbc",
+            "selected_channel": "CAN  5",
+            "selected_bus": "Body",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/15_Body_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "16_Diag_CAN_Matrix_v11.4.9.dbc",
+            "selected_channel": "CAN  8",
+            "selected_bus": "Diag",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/16_Diag_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "17_PT_CAN_Matrix_v11.4.9.dbc",
+            "selected_channel": "CAN  3",
+            "selected_bus": "PT",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/17_PT_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "18_Chassis_CAN_Matrix_v11.4.9.dbc",
+            "selected_channel": "CAN  6",
+            "selected_bus": "Chassis",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/18_Chassis_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "19_BA_CAN_Matrix_v11.4.9.dbc",
+            "selected_channel": "CAN  4",
+            "selected_bus": "BA",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/19_BA_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "15_Body_CAN_Matrix_v11.4.9.dbc (2)",
+            "selected_channel": "CAN  2",
+            "selected_bus": "Body",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/15_Body_CAN_Matrix_v11.4.9.dbc"
+        },
+        {
+            "db_name": "15_Body_CAN_Matrix_v11.4.9.dbc (3)",
+            "selected_channel": "CAN  1",
+            "selected_bus": "Body",
+            "db_path": "C:/TASKS/DATA/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/ConfigVF67_Encrypted_DBC_11.4.9_V4.1/NP_11.4.9.2/15_Body_CAN_Matrix_v11.4.9.dbc"
+        }
+    ],
+    "LIN": []
+}

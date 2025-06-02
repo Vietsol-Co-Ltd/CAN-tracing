@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/buno_database_database_server_storage_reload_update-256.webp</file>
+    </qresource>
+</RCC>

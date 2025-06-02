@@ -1,57 +1,125 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.16)
+project(CANtracing)
 
-project(lblf VERSION 0.3 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_BUILD_TYPE Release)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets SerialBus)
 
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
-endif()
+# === Include directories ===
+include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/data)
+include_directories(${CMAKE_SOURCE_DIR})
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+# === Link directories ===
+link_directories(${CMAKE_SOURCE_DIR}/data)
 
-#set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
-#set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+qt6_add_resources(RESOURCES_ADDED resource.qrc)
 
-#include(FetchContent)
+# Set SKIP_AUTOGEN for lblf header files
+set_source_files_properties(
+    lblf_reader/lblf/blf_reader.hh
+    lblf_reader/lblf/blf_structs.hh
+    lblf_reader/lblf/utils.hh
+    PROPERTIES SKIP_AUTOGEN ON
+)
 
-#FetchContent_Declare(
-#    zlib
-#    URL https://zlib.net/zlib1211.zip
-#)
-#FetchContent_MakeAvailable(zlib)
+add_executable(CANtracing
+    main.cpp
+    src/Configuration.cpp
+    src/MainWindow.cpp
+    src/LoadingOverlay.cpp
+    src/RunButton.cpp
+    src/Msetup/MSetupWindow.cpp
+    src/Sisetup/SimulationWindow.cpp
+    src/Offline/OfflineModeWindow.cpp
+    src/Trace/TraceWindow.cpp
+    src/GraphicWindow.cpp
+    src/ConvertWindow.cpp
+    src/Msetup/OfflineMode/offlineMode.cpp
+    src/Msetup/OnlineMode/onlineMode.cpp
+    src/ChMap/HwMappingWindow.cpp
+    src/ChMap/ChannelMappingDialog.cpp
+    lblf_reader/BlfReader.cpp
+    lblf_reader/lblf/blf_reader.cpp
+    include/ChannelMappingDialog.h
+    include/HwMappingWindow.h
+    include/RunButton.h
+    include/onlineMode.h
+    include/offlineMode.h
+    include/MainWindow.h
+    include/MSetupWindow.h
+    include/Configuration.h
+    include/SimulationWindow.h
+    include/OfflineModeWindow.h
+    include/TraceWindow.h
+    include/GraphicWindow.h
+    include/ConvertWindow.h
+    include/ClickableLabel.h
+    include/LoadingOverlay.h
+    lblf_reader/CanMessage.hpp
+    lblf_reader/BlfReader.hpp
+    lblf_reader/lblf/blf_reader.hh
+    lblf_reader/lblf/blf_structs.hh
+    lblf_reader/lblf/utils.hh
+    app.rc
+    ${RESOURCES_ADDED}
+)
 
-find_package(ZLIB REQUIRED)
+set(VXLAPI_LIB "${CMAKE_SOURCE_DIR}/data/libvxlapi64.a")
 
-if (MSVC)
-    # warning level 4
-    #add_compile_options(/W4)
-else()
-    # additional warnings
-    #add_compile_options(-Wall -Wno-switch -Wno-deprecated-copy -Wdeprecated-enum-enum-conversion -Wmisleading-indentation -Wc++20-extensions  -Wshadow -Wconversion)
-endif()
+# === Link Qt and vxlapi ===
+target_link_libraries(CANtracing PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::SerialBus
+    ${VXLAPI_LIB}  # <--- add this line to link vxlapi.lib
+)
 
-message(STATUS "CMake Version: ${CMAKE_VERSION}")
-message(STATUS "C++ Compiler: ${CMAKE_CXX_COMPILER}")
-message(STATUS "C++ Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
-message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
-message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
+# === Copy folder data vào thư mục build ===
+set(DATA_SOURCE_DIR "${CMAKE_SOURCE_DIR}/data")
+set(DATA_DEST_DIR "${CMAKE_BINARY_DIR}/data")
 
+add_custom_target(copy_data ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${DATA_SOURCE_DIR}"
+        "${DATA_DEST_DIR}"
+    COMMENT "Copy data folder to build directory"
+)
 
-add_executable(read read.cc print.cc blf_reader.cc)
-target_link_libraries(read PRIVATE ZLIB::ZLIB )
+add_dependencies(CANtracing copy_data)
 
-add_executable(object_types object_types.cc print.cc blf_reader.cc)
-target_link_libraries(object_types PRIVATE ZLIB::ZLIB )
+# === Copy DLL Qt cần thiết ===
+set(Qt6_DLLS
+    "${CMAKE_SOURCE_DIR}/Qt6/Qt6Core.dll"
+    "${CMAKE_SOURCE_DIR}/Qt6/Qt6Gui.dll"
+    "${CMAKE_SOURCE_DIR}/Qt6/Qt6Widgets.dll"
+    "${CMAKE_SOURCE_DIR}/Qt6/libb2-1.dll"
+)
 
-add_executable(read_blf read_blf.cc print.cc blf_reader.cc)
-target_link_libraries(read_blf PRIVATE ZLIB::ZLIB )
+add_custom_target(copy_qt_dlls ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${Qt6_DLLS} ${CMAKE_BINARY_DIR}
+)
 
-add_executable(read_can read_can.cc print.cc blf_reader.cc)
-target_link_libraries(read_can PRIVATE ZLIB::ZLIB )
+foreach(dll ${Qt6_DLLS})
+    add_custom_command(TARGET copy_qt_dlls POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${dll}
+        ${CMAKE_BINARY_DIR}
+    )
+endforeach()
 
-add_executable(read_filestatistics read_filestatistics.cc print.cc blf_reader.cc)
-target_link_libraries(read_filestatistics PRIVATE ZLIB::ZLIB )
+add_dependencies(CANtracing copy_qt_dlls)
+
+# === Copy plugin Qt platforms ===
+set(Qt_Platform_Plugin "${CMAKE_SOURCE_DIR}/platforms/qwindows.dll")
+
+add_custom_command(TARGET CANtracing POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:CANtracing>/platforms"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${Qt_Platform_Plugin}"
+            "$<TARGET_FILE_DIR:CANtracing>/platforms/"
+)

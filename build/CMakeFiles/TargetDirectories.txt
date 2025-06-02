@@ -1,0 +1,7 @@
+C:/tool/cantracing/build/CMakeFiles/CANtracing.dir
+C:/tool/cantracing/build/CMakeFiles/copy_data.dir
+C:/tool/cantracing/build/CMakeFiles/copy_qt_dlls.dir
+C:/tool/cantracing/build/CMakeFiles/edit_cache.dir
+C:/tool/cantracing/build/CMakeFiles/rebuild_cache.dir
+C:/tool/cantracing/build/CMakeFiles/CANtracing_autogen_timestamp_deps.dir
+C:/tool/cantracing/build/CMakeFiles/CANtracing_autogen.dir
