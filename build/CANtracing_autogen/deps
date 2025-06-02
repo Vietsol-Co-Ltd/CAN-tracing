@@ -16,6 +16,7 @@ CANtracing_autogen/timestamp: \
 	C:/TOOL/CANtracing/include/RunButton.h \
 	C:/TOOL/CANtracing/include/SimulationWindow.h \
 	C:/TOOL/CANtracing/include/TraceWindow.h \
+	C:/TOOL/CANtracing/include/common_includes.h \
 	C:/TOOL/CANtracing/include/offlineMode.h \
 	C:/TOOL/CANtracing/include/onlineMode.h \
 	C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp \

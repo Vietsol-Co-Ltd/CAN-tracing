@@ -1,13 +1,6 @@
 #include "HwMappingWindow.h"
 #include "ChannelMappingDialog.h"
-
-#include <windows.h>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QPushButton>
-#include <QTimer>
-#include <QDebug>
+#include "common_includes.h"
 
 HwMappingWindow::HwMappingWindow(QWidget *parent) : QWidget(parent) {
     QVBoxLayout* mainLayout = new QVBoxLayout(this);

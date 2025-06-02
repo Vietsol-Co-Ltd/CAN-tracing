@@ -26,7 +26,6 @@ CANtracing_autogen/timestamp: C:/TOOL/CANtracing/CMakeLists.txt \
   C:/TOOL/CANtracing/lblf_reader/lblf/blf_reader.cpp \
   C:/TOOL/CANtracing/main.cpp \
   C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.cpp \
-  C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.h \
   C:/TOOL/CANtracing/src/ChMap/HwMappingWindow.cpp \
   C:/TOOL/CANtracing/src/Configuration.cpp \
   C:/TOOL/CANtracing/src/ConvertWindow.cpp \
@@ -1725,6 +1724,8 @@ C:/msys64/ucrt64/include/qt6/QtWidgets/qframe.h:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/qdialog.h:
 
+C:/msys64/ucrt64/include/inaddr.h:
+
 C:/msys64/ucrt64/lib/cmake/Qt6/QtFeature.cmake:
 
 C:/msys64/ucrt64/include/errno.h:
@@ -1881,13 +1882,13 @@ C:/msys64/ucrt64/include/qt6/QtCore/qconfig.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/os_defines.h:
 
+C:/msys64/ucrt64/include/c++/15.1.0/atomic:
+
 C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake:
 
 C:/msys64/ucrt64/include/c++/15.1.0/stdexcept:
 
 C:/msys64/ucrt64/include/c++/15.1.0/unordered_map:
-
-C:/msys64/ucrt64/include/c++/15.1.0/atomic:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h:
 
@@ -2125,12 +2126,6 @@ C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/allocated_ptr.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/tmmintrin.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_pair.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/algorithm:
-
 C:/msys64/ucrt64/include/handleapi.h:
 
 C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp:
@@ -2145,6 +2140,20 @@ C:/msys64/ucrt64/include/qt6/QtCore/QSize:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/invoke.h:
 
+C:/msys64/ucrt64/include/_mingw_stdarg.h:
+
+C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicGitHelpers.cmake:
+
+C:/msys64/ucrt64/include/corecrt_wstdlib.h:
+
+C:/msys64/ucrt64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessAliasTargets.cmake:
+
+C:/msys64/ucrt64/include/objbase.h:
+
+C:/msys64/ucrt64/include/rpcnterr.h:
+
+C:/msys64/ucrt64/include/qt6/QtGui/qfontvariableaxis.h:
+
 C:/TOOL/CANtracing/include/LoadingOverlay.h:
 
 C:/TOOL/CANtracing/src/Offline/OfflineModeWindow.cpp:
@@ -2156,6 +2165,10 @@ C:/msys64/ucrt64/include/qt6/QtGui/qguiapplication_platform.h:
 C:/msys64/ucrt64/include/memoryapi.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/tr1/bessel_function.tcc:
+
+C:/msys64/ucrt64/include/c++/15.1.0/backward/binders.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/chrono.h:
 
 C:/msys64/ucrt64/lib/cmake/Qt6/FindWrapAtomic.cmake:
 
@@ -2255,26 +2268,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/erase_if.h:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/QTreeWidget:
 
-C:/msys64/ucrt64/include/_mingw_stdarg.h:
-
-C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicGitHelpers.cmake:
-
-C:/msys64/ucrt64/include/corecrt_wstdlib.h:
-
-C:/msys64/ucrt64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateVersionlessAliasTargets.cmake:
-
-C:/msys64/ucrt64/include/objbase.h:
-
-C:/msys64/ucrt64/include/rpcnterr.h:
-
-C:/msys64/ucrt64/include/qt6/QtGui/qfontvariableaxis.h:
-
-C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.h:
-
-C:/msys64/ucrt64/include/fileapi.h:
-
-C:/msys64/ucrt64/include/qt6/QtGui/qpixmap.h:
-
 C:/TOOL/CANtracing/include/ClickableLabel.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qfloat16.h:
@@ -2342,10 +2335,6 @@ C:/msys64/ucrt64/include/qt6/QtCore/qtpreprocessorsupport.h:
 C:/msys64/ucrt64/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateDependencies.cmake:
 
 C:/msys64/ucrt64/include/c++/15.1.0/ext/numeric_traits.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/backward/binders.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/chrono.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avxvnniint8intrin.h:
 
@@ -2420,6 +2409,10 @@ C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake:
 C:/msys64/ucrt64/include/c++/15.1.0/bits/predefined_ops.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qitemselectionmodel.h:
+
+C:/msys64/ucrt64/include/fileapi.h:
+
+C:/msys64/ucrt64/include/qt6/QtGui/qpixmap.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qrect.h:
 
@@ -2567,7 +2560,11 @@ C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qdeadlinetimer.h:
 
-C:/msys64/ucrt64/include/inaddr.h:
+C:/msys64/ucrt64/include/c++/15.1.0/algorithm:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/tmmintrin.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_pair.h:
 
 C:/msys64/ucrt64/include/ioapiset.h:
 
@@ -2991,10 +2988,6 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avx10_2-512satcvtintr
 
 C:/msys64/ucrt64/include/qt6/QtCore/qshareddata.h:
 
-C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractspinbox.h:
-
-C:/msys64/ucrt64/include/qt6/QtCore/qsharedpointer_impl.h:
-
 C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qcontiguouscache.h:
@@ -3028,6 +3021,10 @@ C:/msys64/ucrt64/include/c++/15.1.0/cwchar:
 C:/msys64/ucrt64/include/qt6/QtCore/qtcoreglobal.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qtresource.h:
+
+C:/msys64/ucrt64/include/qt6/QtCore/qsharedpointer_impl.h:
+
+C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractspinbox.h:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/qtreewidgetitemiterator.h:
 

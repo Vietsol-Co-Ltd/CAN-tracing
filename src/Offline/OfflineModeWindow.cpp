@@ -1,19 +1,5 @@
 #include "OfflineModeWindow.h"
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QPushButton>
-#include <QHeaderView>
-#include <QDragEnterEvent>
-#include <QMimeData>
-#include <QFileInfo>
-#include <QDateTime>
-#include <QSettings>
-#include <QDir>
-#include <QStyle>
-#include <QCloseEvent>
-#include <QCheckBox>
-#include <QMessageBox>
+#include "common_includes.h"
 
 OfflineModeWindow::OfflineModeWindow(QWidget *parent) : QWidget(parent) {
     setAcceptDrops(true);

@@ -1,6 +1,5 @@
 #include "GraphicWindow.h"
-#include <QVBoxLayout>
-#include <QLabel>
+#include "common_includes.h"
 
 GraphicWindow::GraphicWindow(QWidget *parent) : QWidget(parent) {
     QVBoxLayout* layout = new QVBoxLayout(this);

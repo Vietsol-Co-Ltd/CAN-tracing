@@ -1,27 +1,7 @@
-    #include "ChannelMappingDialog.h"
-
-    #include <QVBoxLayout>
-#include <QTreeWidget>
-#include <QHeaderView>
-    #include <QLabel>
-    #include <QFile>
-    #include <QTextStream>
-    #include <QDebug>
-#include <QSettings>
-#include <QCheckBox>
-#include <QComboBox>
-#include <QStyleFactory>
-#include <QPalette>
-#include <QTimer>
-#include <QColor>
-#include <QHBoxLayout>
+#include "ChannelMappingDialog.h"
+#include "common_includes.h"
 #include "vxlapi.h"
-#include <QDir>
-#include <QRegularExpression>
-#include <QMessageBox>
-#include <QStandardItemModel>
-#include <QStandardItem>
-#include <QFileSystemWatcher>
+
 
     ChannelMappingDialog::ChannelMappingDialog(QWidget* parent)
         : QDialog(parent)
@@ -97,6 +77,8 @@
                         onItemChanged(item);
                     }
                 });
+        loadAndShowDialog(); //Load lại UI sau khi mở
+        applyModeFromConfig(); //Ẩn UI nếu đang chế độ offline
     }
 
     bool ChannelMappingDialog::loadAndShowDialog() {
@@ -111,35 +93,17 @@
             treeWidget->hide();
         }
 
-        // Get absolute path to data directory
-        QString dataPath = QDir::currentPath();
-        if (dataPath.endsWith("bin")) {
-            dataPath = QDir(dataPath).filePath("../data");
-        } else {
-            dataPath = QDir(dataPath).filePath("data");
-        }
-        qDebug() << "Looking for config files in:" << dataPath;
-
-        // Check if config files exist
-        QDir dataDir(dataPath);
-        if (!dataDir.exists()) {
-            qWarning() << "Data directory does not exist at:" << dataPath;
-            QMessageBox::critical(this, "Error", 
-                QString("Cannot find data directory at:\n%1").arg(dataPath));
-            return false;
-        }
-
-        // Check SsetUp.cfg
-        QString ssetupPath = dataDir.filePath("SsetUp.cfg");
+        // Get path to data directory
+        QString dataPath = QDir(QDir::currentPath()).filePath("../data");
+        QString ssetupPath = QDir(dataPath).filePath("SsetUp.cfg");
         if (!QFile::exists(ssetupPath)) {
             qWarning() << "SsetUp.cfg not found at:" << ssetupPath;
             QMessageBox::critical(this, "Error", 
                 QString("Cannot find SsetUp.cfg at:\n%1").arg(ssetupPath));
             return false;
         }
-
-        // Check ChMap.cfg
-        QString chmapPath = dataDir.filePath("ChMap.cfg");
+        
+        QString chmapPath = QDir(dataPath).filePath("ChMap.cfg");
         if (!QFile::exists(chmapPath)) {
             qWarning() << "Creating new ChMap.cfg at:" << chmapPath;
         }
@@ -148,12 +112,12 @@
         bool success = true;
         QString errorMsg;
 
-        if (!loadChannelConfig(dataDir.path())) {
+        if (!loadChannelConfig(QDir(dataPath).path())) {
             success = false;
             errorMsg += "Failed to load channel configuration.\n";
         }
 
-        if (!readNetworksFromSsetUp(dataDir.path())) {
+        if (!readNetworksFromSsetUp(QDir(dataPath).path())) {
             success = false;
             errorMsg += "Failed to load network configuration.\n";
         }
@@ -546,17 +510,9 @@ bool ChannelMappingDialog::loadChannelConfig(const QString& dataPath) {
 
 void ChannelMappingDialog::saveChannelConfig() {
     // Get correct data path
-    QString dataPath = QDir::currentPath();
-    if (dataPath.endsWith("bin")) {
-        dataPath = QDir(dataPath).filePath("../data");
-    } else {
-        dataPath = QDir(dataPath).filePath("data");
-    }
-    
+    QString dataPath = QDir(QDir::currentPath()).filePath("../data");
     QString configPath = QDir(dataPath).filePath("ChMap.cfg");
     QSettings settings(configPath, QSettings::IniFormat);
-    
-    qDebug() << "Saving configuration to" << configPath;
     
     // Clear existing configuration
     settings.clear();
@@ -701,33 +657,13 @@ QString ChannelMappingDialog::resolveBusType(unsigned int busType) {
 
     void ChannelMappingDialog::refreshChannelList() {
         // Get data path
-        QString dataPath = QDir::currentPath();
-        if (dataPath.endsWith("bin")) {
-            dataPath = QDir(dataPath).filePath("../data");
-        } else {
-            dataPath = QDir(dataPath).filePath("data");
-        }
+        QString dataPath = QDir(QDir::currentPath()).filePath("../data");
 
         bool needsUpdate = false;
 
         // Check SsetUp.cfg changes
         QString ssetupPath = QDir(dataPath).filePath("SsetUp.cfg");
-        if (QFile::exists(ssetupPath)) {
-            QFile file(ssetupPath);
-            if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                QString content = file.readAll();
-                file.close();
 
-                // Force update if content changed
-                if (content != lastSsetUpContent) {
-                    qDebug() << "SsetUp.cfg content changed";
-                    lastSsetUpContent = content;
-                    needsUpdate = true;
-                }
-            }
-        }
-
-        // Check hardware changes
         QStringList currentChannels = readConfiguredChannels();
         if (currentChannels != lastChannelList) {
             qDebug() << "Hardware channels changed";
@@ -802,12 +738,7 @@ void ChannelMappingDialog::closeEvent(QCloseEvent* event) {
 
 void ChannelMappingDialog::setupFileWatcher() {
     // Get data path
-    QString dataPath = QDir::currentPath();
-    if (dataPath.endsWith("bin")) {
-        dataPath = QDir(dataPath).filePath("../data");
-    } else {
-        dataPath = QDir(dataPath).filePath("data");
-    }
+    QString dataPath = QDir(QDir::currentPath()).filePath("../data");
 
     // Watch SsetUp.cfg
     QString ssetupPath = QDir(dataPath).filePath("SsetUp.cfg");

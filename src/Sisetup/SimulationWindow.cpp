@@ -1,38 +1,6 @@
 #include "SimulationWindow.h"
 #include "ClickableLabel.h"
-
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QGroupBox>
-#include <QMenu>
-#include <QAction>
-#include <QContextMenuEvent>
-#include <QWidgetAction>
-#include <QFrame>
-#include <QMouseEvent>
-#include <QDir>
-#include <QApplication>
-#include <QSplitter>
-
-#include <QTreeWidget>
-#include <QTreeWidgetItem>
-#include <QDialog>
-#include <QLineEdit>
-#include <QComboBox>
-#include <QPushButton>
-#include <QMessageBox>
-#include <QSet>
-#include <QCheckBox>
-#include <QInputDialog>
-#include <QSettings>
-#include <QFile>
-#include <QDebug>
-#include <QFileDialog>
-#include <QTimer>
-#include <QFont>
-#include <QBrush>
-#include <QColor>
+#include "common_includes.h"
 
 SimulationWindow::SimulationWindow(QWidget *parent) : QWidget(parent), networkActiveState(false) {
     // Thiết lập đường dẫn file config
@@ -99,6 +67,12 @@ SimulationWindow::SimulationWindow(QWidget *parent) : QWidget(parent), networkAc
     
     // Bắt đầu timer kiểm tra database
     setupDatabaseCheckTimer();
+
+    auto autoSaveTimer = new QTimer(this);
+    connect(autoSaveTimer, &QTimer::timeout, this, [this]() {
+    saveConfig();
+});
+autoSaveTimer->start(3000); // 3000 ms = 3 giây
 }
 
 SimulationWindow::~SimulationWindow() {

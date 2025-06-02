@@ -18,6 +18,7 @@ CANtracing_autogen/timestamp: C:/TOOL/CANtracing/CMakeLists.txt \
   C:/TOOL/CANtracing/include/RunButton.h \
   C:/TOOL/CANtracing/include/SimulationWindow.h \
   C:/TOOL/CANtracing/include/TraceWindow.h \
+  C:/TOOL/CANtracing/include/common_includes.h \
   C:/TOOL/CANtracing/include/offlineMode.h \
   C:/TOOL/CANtracing/include/onlineMode.h \
   C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp \
@@ -1082,7 +1083,6 @@ CMakeFiles/CANtracing.dir/CANtracing_autogen/mocs_compilation.cpp.obj: CANtracin
   C:/TOOL/CANtracing/include/SimulationWindow.h \
   C:/TOOL/CANtracing/include/TraceWindow.h \
   C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp \
-  C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.h \
   C:/msys64/ucrt64/include/_bsd_types.h \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
@@ -1870,8 +1870,7 @@ CMakeFiles/CANtracing.dir/CANtracing_autogen/mocs_compilation.cpp.obj: CANtracin
   CANtracing_autogen/6YEA5652QU/moc_OfflineModeWindow.cpp \
   CANtracing_autogen/6YEA5652QU/moc_RunButton.cpp \
   CANtracing_autogen/6YEA5652QU/moc_SimulationWindow.cpp \
-  CANtracing_autogen/6YEA5652QU/moc_TraceWindow.cpp \
-  CANtracing_autogen/TQYM6WGWTK/moc_ChannelMappingDialog.cpp
+  CANtracing_autogen/6YEA5652QU/moc_TraceWindow.cpp
 
 CMakeFiles/CANtracing.dir/lblf_reader/BlfReader.cpp.obj: C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp \
   C:/TOOL/CANtracing/lblf_reader/BlfReader.hpp \
@@ -3753,6 +3752,7 @@ CMakeFiles/CANtracing.dir/src/ChMap/HwMappingWindow.cpp.obj: C:/TOOL/CANtracing/
   C:/msys64/ucrt64/include/pthread_time.h \
   C:/msys64/ucrt64/include/pthread_unistd.h \
   C:/msys64/ucrt64/include/qt6/QtCore/QDateTime \
+  C:/msys64/ucrt64/include/qt6/QtCore/QDebug \
   C:/msys64/ucrt64/include/qt6/QtCore/QFileSystemWatcher \
   C:/msys64/ucrt64/include/qt6/QtCore/QList \
   C:/msys64/ucrt64/include/qt6/QtCore/QMap \
@@ -9699,8 +9699,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/deque.tcc:
 
 C:/TOOL/CANtracing/lblf_reader/lblf/blf_reader.hh:
 
-CANtracing_autogen/TQYM6WGWTK/moc_ChannelMappingDialog.cpp:
-
 CANtracing_autogen/6YEA5652QU/moc_TraceWindow.cpp:
 
 CANtracing_autogen/6YEA5652QU/moc_SimulationWindow.cpp:
@@ -9867,12 +9865,6 @@ C:/msys64/ucrt64/include/c++/15.1.0/ext/string_conversions.h:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/qtreewidgetitemiterator.h:
 
-C:/msys64/ucrt64/include/qt6/QtCore/QTextStream:
-
-C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractspinbox.h:
-
-C:/msys64/ucrt64/include/qt6/QtCore/qsharedpointer_impl.h:
-
 C:/msys64/ucrt64/include/qt6/QtCore/qtresource.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qtcoreglobal.h:
@@ -9902,6 +9894,12 @@ C:/msys64/ucrt64/include/qt6/QtCore/qsize.h:
 C:/msys64/ucrt64/include/qt6/QtGui/QStandardItemModel:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qcontiguouscache.h:
+
+C:/msys64/ucrt64/include/qt6/QtCore/qsharedpointer_impl.h:
+
+C:/msys64/ucrt64/include/qt6/QtCore/QTextStream:
+
+C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractspinbox.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qshareddata.h:
 
@@ -10217,9 +10215,7 @@ C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsexports.h:
 
 C:/msys64/ucrt64/include/ioapiset.h:
 
-C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_pair.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/tmmintrin.h:
+C:/msys64/ucrt64/include/inaddr.h:
 
 C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QJpegPluginTargets.cmake:
 
@@ -10232,14 +10228,6 @@ C:/msys64/ucrt64/include/threadpoollegacyapiset.h:
 C:/TOOL/CANtracing/src/Msetup/OnlineMode/onlineMode.cpp:
 
 C:/msys64/ucrt64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake:
-
-C:/TOOL/CANtracing/src/Sisetup/SimulationWindow.cpp:
-
-C:/msys64/ucrt64/include/c++/15.1.0/algorithm:
-
-C:/msys64/ucrt64/include/qt6/QtCore/qdeadlinetimer.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_facets_nonio.tcc:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qbasictimer.h:
 
@@ -10349,6 +10337,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/bits/hashtable.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qrect.h:
 
+C:/msys64/ucrt64/include/qt6/QtGui/qpixmap.h:
+
 C:/msys64/ucrt64/include/qt6/QtCore/qitemselectionmodel.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/predefined_ops.h:
@@ -10419,6 +10409,10 @@ C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/avxvnniint8intrin.h:
 
+C:/msys64/ucrt64/include/c++/15.1.0/bits/chrono.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/backward/binders.h:
+
 C:/msys64/ucrt64/include/c++/15.1.0/ext/numeric_traits.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qtpreprocessorsupport.h:
@@ -10430,6 +10424,14 @@ C:/msys64/ucrt64/include/basetsd.h:
 C:/msys64/ucrt64/include/c++/15.1.0/x86_64-w64-mingw32/bits/gthr-default.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qlogging.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/erase_if.h:
+
+C:/msys64/ucrt64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake:
+
+C:/msys64/ucrt64/include/qt6/QtCore/qset.h:
+
+C:/msys64/ucrt64/include/bemapiset.h:
 
 C:/msys64/ucrt64/include/qt6/QtCore/qnativeinterface.h:
 
@@ -10482,14 +10484,6 @@ C:/TOOL/CANtracing/include/onlineMode.h:
 C:/msys64/ucrt64/include/qt6/QtCore/qfloat16.h:
 
 C:/TOOL/CANtracing/include/ClickableLabel.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/bits/erase_if.h:
-
-C:/msys64/ucrt64/lib/cmake/Qt6GuiTools/Qt6GuiToolsDependencies.cmake:
-
-C:/msys64/ucrt64/include/qt6/QtCore/qset.h:
-
-C:/msys64/ucrt64/include/bemapiset.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_iterator_base_funcs.h:
 
@@ -10581,10 +10575,6 @@ C:/TOOL/CANtracing/include/Configuration.h:
 
 C:/msys64/ucrt64/lib/cmake/Qt6/FindWrapAtomic.cmake:
 
-C:/msys64/ucrt64/include/c++/15.1.0/bits/chrono.h:
-
-C:/msys64/ucrt64/include/c++/15.1.0/backward/binders.h:
-
 C:/msys64/ucrt64/include/c++/15.1.0/tr1/bessel_function.tcc:
 
 C:/msys64/ucrt64/include/qt6/QtGui/qguiapplication_platform.h:
@@ -10614,6 +10604,18 @@ C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp:
 C:/msys64/ucrt64/include/sec_api/stralign_s.h:
 
 C:/msys64/ucrt64/include/handleapi.h:
+
+C:/TOOL/CANtracing/src/Sisetup/SimulationWindow.cpp:
+
+C:/msys64/ucrt64/include/qt6/QtCore/qdeadlinetimer.h:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/locale_facets_nonio.tcc:
+
+C:/msys64/ucrt64/include/c++/15.1.0/algorithm:
+
+C:/msys64/ucrt64/include/c++/15.1.0/bits/stl_pair.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/tmmintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/allocated_ptr.h:
 
@@ -10758,6 +10760,8 @@ C:/msys64/ucrt64/include/c++/15.1.0/cstddef:
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.1.0/include/emmintrin.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/unordered_set.h:
+
+C:/TOOL/CANtracing/include/common_includes.h:
 
 C:/msys64/ucrt64/include/c++/15.1.0/bits/uses_allocator_args.h:
 
@@ -11080,8 +11084,6 @@ C:/msys64/ucrt64/include/errno.h:
 CANtracing_autogen/moc_predefs.h:
 
 C:/msys64/ucrt64/lib/cmake/Qt6/QtFeature.cmake:
-
-C:/msys64/ucrt64/include/inaddr.h:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/qdialog.h:
 
@@ -11952,10 +11954,6 @@ CMakeFiles/4.0.2/CMakeCXXCompiler.cmake:
 C:/msys64/ucrt64/include/qt6/QtGui/QAction:
 
 CMakeFiles/4.0.2/CMakeRCCompiler.cmake:
-
-C:/msys64/ucrt64/include/qt6/QtGui/qpixmap.h:
-
-C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.h:
 
 C:/msys64/ucrt64/include/qt6/QtWidgets/QCheckBox:
 

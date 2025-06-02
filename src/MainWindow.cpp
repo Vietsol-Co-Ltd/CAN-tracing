@@ -1,18 +1,4 @@
-#include <QPushButton>
-#include <QProgressBar>
-#include <QMessageBox>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QWidget>
-#include <QFileDialog>
-#include <QShortcut>
-#include <QTabWidget>
-#include <QTimer>
-#include <QProgressDialog>
-#include <QProcess>
-#include <QApplication>
-#include <QScreen>
-
+#include "common_includes.h"
 #include "MainWindow.h"
 #include "MSetupWindow.h"
 #include "Configuration.h"

@@ -1,6 +1,5 @@
 #include "ConvertWindow.h"
-#include <QVBoxLayout>
-#include <QLabel>
+#include "common_includes.h"
 
 ConvertWindow::ConvertWindow(QWidget *parent) : QWidget(parent) {
     QVBoxLayout* layout = new QVBoxLayout(this);

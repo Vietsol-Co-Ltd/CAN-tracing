@@ -59,6 +59,7 @@ add_executable(CANtracing
     include/ConvertWindow.h
     include/ClickableLabel.h
     include/LoadingOverlay.h
+    include/common_includes.h
     lblf_reader/CanMessage.hpp
     lblf_reader/BlfReader.hpp
     lblf_reader/lblf/blf_reader.hh

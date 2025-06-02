@@ -1,11 +1,6 @@
 #include "RunButton.h"
-#include <QSettings>
-#include <QDebug>
-#include <QDir>
-#include <QDateTime>
-#include <QProcess>
 #include "lblf_reader/BlfReader.hpp"
-
+#include "common_includes.h"
 // Global variable to store CAN messages
 std::vector<CanMessage> g_canMessages;
 QProcess* debugTerminal = nullptr;

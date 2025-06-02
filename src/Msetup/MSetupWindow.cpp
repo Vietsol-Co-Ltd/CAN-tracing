@@ -2,14 +2,7 @@
 #include "ClickableLabel.h"
 #include "onlineMode.h"
 #include "offlineMode.h"
-
-#include <QLabel>
-#include <QPushButton>
-#include <QFont>
-#include <QPainter>
-#include <QFile>
-#include <QDir>
-#include <QDebug>
+#include "common_includes.h"
 
 MSetupWindow::MSetupWindow(QWidget *parent, QTabWidget* mainTabWidget)
     : QWidget(parent), mainTabWidget(mainTabWidget)

@@ -19,6 +19,7 @@ C:/TOOL/CANtracing/build/CANtracing_autogen/timestamp
  C:/TOOL/CANtracing/include/RunButton.h
  C:/TOOL/CANtracing/include/SimulationWindow.h
  C:/TOOL/CANtracing/include/TraceWindow.h
+ C:/TOOL/CANtracing/include/common_includes.h
  C:/TOOL/CANtracing/include/offlineMode.h
  C:/TOOL/CANtracing/include/onlineMode.h
  C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp
@@ -1084,7 +1085,6 @@ CMakeFiles/CANtracing.dir/CANtracing_autogen/mocs_compilation.cpp.obj
  C:/TOOL/CANtracing/include/SimulationWindow.h
  C:/TOOL/CANtracing/include/TraceWindow.h
  C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp
- C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.h
  C:/msys64/ucrt64/include/_bsd_types.h
  C:/msys64/ucrt64/include/_mingw.h
  C:/msys64/ucrt64/include/_mingw_mac.h
@@ -1873,7 +1873,6 @@ CMakeFiles/CANtracing.dir/CANtracing_autogen/mocs_compilation.cpp.obj
  C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_RunButton.cpp
  C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_SimulationWindow.cpp
  C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_TraceWindow.cpp
- C:/tool/cantracing/build/CANtracing_autogen/TQYM6WGWTK/moc_ChannelMappingDialog.cpp
 
 CMakeFiles/CANtracing.dir/lblf_reader/BlfReader.cpp.obj
  C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp
@@ -3761,6 +3760,7 @@ CMakeFiles/CANtracing.dir/src/ChMap/HwMappingWindow.cpp.obj
  C:/msys64/ucrt64/include/pthread_time.h
  C:/msys64/ucrt64/include/pthread_unistd.h
  C:/msys64/ucrt64/include/qt6/QtCore/QDateTime
+ C:/msys64/ucrt64/include/qt6/QtCore/QDebug
  C:/msys64/ucrt64/include/qt6/QtCore/QFileSystemWatcher
  C:/msys64/ucrt64/include/qt6/QtCore/QList
  C:/msys64/ucrt64/include/qt6/QtCore/QMap

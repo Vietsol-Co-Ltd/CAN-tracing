@@ -1,6 +1,5 @@
 #include "LoadingOverlay.h"
-#include <QPainter>
-#include <QVBoxLayout>
+#include "common_includes.h"
 
 LoadingOverlay::LoadingOverlay(QWidget* parent) : QWidget(parent) {
     setAttribute(Qt::WA_TransparentForMouseEvents);

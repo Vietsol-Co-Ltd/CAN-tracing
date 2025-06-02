@@ -1,8 +1,5 @@
 #include "Configuration.h"
-#include <QFile>
-#include <QTextStream>
-#include <QTimer>
-#include <QDebug>
+#include "common_includes.h"
 
 bool Configuration::loadConfig(const QString& path, QMap<QString, QPointF>& positions)
 {
