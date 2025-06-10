@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QWidget>
-#include "lblf_reader/CanMessage.hpp"
+#include "CanMessage.h"
 #include <vector>
 
 class QTableWidget;
@@ -12,6 +12,7 @@ class TraceWindow : public QWidget {
 
 public:
     explicit TraceWindow(QWidget *parent = nullptr);
+    void startTraceLogging();
     void setMessages(const std::vector<CanMessage>& messages);
     void clear();
 

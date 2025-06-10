@@ -427,6 +427,12 @@
 			null
 		],
 		[
+			"C:/TOOL/CANtracing/include/GlobalData.h",
+			"MU",
+			"6YEA5652QU/moc_GlobalData.cpp",
+			null
+		],
+		[
 			"C:/TOOL/CANtracing/include/GraphicWindow.h",
 			"MU",
 			"6YEA5652QU/moc_GraphicWindow.cpp",
@@ -499,13 +505,7 @@
 			null
 		],
 		[
-			"C:/TOOL/CANtracing/lblf_reader/BlfReader.hpp",
-			"MU",
-			"3C555NZGAN/moc_BlfReader.cpp",
-			null
-		],
-		[
-			"C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp",
+			"C:/TOOL/CANtracing/lblf_reader/CanMessage.h",
 			"MU",
 			"3C555NZGAN/moc_CanMessage.cpp",
 			null
@@ -542,6 +542,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"C:/TOOL/CANtracing/lblf_reader",
 		"C:/TOOL/CANtracing/include",
 		"C:/TOOL/CANtracing/data",
 		"C:/TOOL/CANtracing",
@@ -593,13 +594,12 @@
 	"SETTINGS_FILE" : "C:/tool/cantracing/build/CMakeFiles/CANtracing_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp", "MU", null ],
-		[ "C:/TOOL/CANtracing/lblf_reader/lblf/blf_reader.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/main.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/ChMap/HwMappingWindow.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/Configuration.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/ConvertWindow.cpp", "MU", null ],
+		[ "C:/TOOL/CANtracing/src/GlobalData.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/GraphicWindow.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/LoadingOverlay.cpp", "MU", null ],
 		[ "C:/TOOL/CANtracing/src/MainWindow.cpp", "MU", null ],

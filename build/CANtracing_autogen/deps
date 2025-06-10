@@ -1,12 +1,12 @@
 CANtracing_autogen/timestamp: \
 	C:/TOOL/CANtracing/CMakeLists.txt \
 	C:/TOOL/CANtracing/Resource.qrc \
-	C:/TOOL/CANtracing/build/CANtracing_autogen/moc_predefs.h \
 	C:/TOOL/CANtracing/data/vxlapi.h \
 	C:/TOOL/CANtracing/include/ChannelMappingDialog.h \
 	C:/TOOL/CANtracing/include/ClickableLabel.h \
 	C:/TOOL/CANtracing/include/Configuration.h \
 	C:/TOOL/CANtracing/include/ConvertWindow.h \
+	C:/TOOL/CANtracing/include/GlobalData.h \
 	C:/TOOL/CANtracing/include/GraphicWindow.h \
 	C:/TOOL/CANtracing/include/HwMappingWindow.h \
 	C:/TOOL/CANtracing/include/LoadingOverlay.h \
@@ -19,15 +19,13 @@ CANtracing_autogen/timestamp: \
 	C:/TOOL/CANtracing/include/common_includes.h \
 	C:/TOOL/CANtracing/include/offlineMode.h \
 	C:/TOOL/CANtracing/include/onlineMode.h \
-	C:/TOOL/CANtracing/lblf_reader/BlfReader.cpp \
-	C:/TOOL/CANtracing/lblf_reader/BlfReader.hpp \
-	C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp \
-	C:/TOOL/CANtracing/lblf_reader/lblf/blf_reader.cpp \
+	C:/TOOL/CANtracing/lblf_reader/CanMessage.h \
 	C:/TOOL/CANtracing/main.cpp \
 	C:/TOOL/CANtracing/src/ChMap/ChannelMappingDialog.cpp \
 	C:/TOOL/CANtracing/src/ChMap/HwMappingWindow.cpp \
 	C:/TOOL/CANtracing/src/Configuration.cpp \
 	C:/TOOL/CANtracing/src/ConvertWindow.cpp \
+	C:/TOOL/CANtracing/src/GlobalData.cpp \
 	C:/TOOL/CANtracing/src/GraphicWindow.cpp \
 	C:/TOOL/CANtracing/src/LoadingOverlay.cpp \
 	C:/TOOL/CANtracing/src/MainWindow.cpp \
@@ -320,6 +318,7 @@ CANtracing_autogen/timestamp: \
 	C:/msys64/ucrt64/include/qt6/QtCore/QMap \
 	C:/msys64/ucrt64/include/qt6/QtCore/QObject \
 	C:/msys64/ucrt64/include/qt6/QtCore/QPointF \
+	C:/msys64/ucrt64/include/qt6/QtCore/QProcess \
 	C:/msys64/ucrt64/include/qt6/QtCore/QRect \
 	C:/msys64/ucrt64/include/qt6/QtCore/QSet \
 	C:/msys64/ucrt64/include/qt6/QtCore/QSettings \
@@ -418,6 +417,7 @@ CANtracing_autogen/timestamp: \
 	C:/msys64/ucrt64/include/qt6/QtCore/qoverload.h \
 	C:/msys64/ucrt64/include/qt6/QtCore/qpair.h \
 	C:/msys64/ucrt64/include/qt6/QtCore/qpoint.h \
+	C:/msys64/ucrt64/include/qt6/QtCore/qprocess.h \
 	C:/msys64/ucrt64/include/qt6/QtCore/qprocessordetection.h \
 	C:/msys64/ucrt64/include/qt6/QtCore/qrect.h \
 	C:/msys64/ucrt64/include/qt6/QtCore/qrefcount.h \

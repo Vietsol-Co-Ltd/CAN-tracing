@@ -1,7 +1,6 @@
 C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_MainWindow.cpp: C:/TOOL/CANtracing/include/MainWindow.h \
   C:/tool/cantracing/build/CANtracing_autogen/moc_predefs.h \
   C:/TOOL/CANtracing/include/RunButton.h \
-  C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
   C:/msys64/ucrt64/include/_mingw_off_t.h \
@@ -199,6 +198,7 @@ C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_MainWindow.cpp: C:/TO
   C:/msys64/ucrt64/include/qt6/QtCore/QMap \
   C:/msys64/ucrt64/include/qt6/QtCore/QObject \
   C:/msys64/ucrt64/include/qt6/QtCore/QPointF \
+  C:/msys64/ucrt64/include/qt6/QtCore/QProcess \
   C:/msys64/ucrt64/include/qt6/QtCore/q17memory.h \
   C:/msys64/ucrt64/include/qt6/QtCore/q20functional.h \
   C:/msys64/ucrt64/include/qt6/QtCore/q20iterator.h \
@@ -246,6 +246,7 @@ C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_MainWindow.cpp: C:/TO
   C:/msys64/ucrt64/include/qt6/QtCore/qglobalstatic.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qhash.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qhashfunctions.h \
+  C:/msys64/ucrt64/include/qt6/QtCore/qiodevice.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qiodevicebase.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qiterable.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qiterator.h \
@@ -269,6 +270,7 @@ C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_MainWindow.cpp: C:/TO
   C:/msys64/ucrt64/include/qt6/QtCore/qoverload.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qpair.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qpoint.h \
+  C:/msys64/ucrt64/include/qt6/QtCore/qprocess.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qprocessordetection.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qrect.h \
   C:/msys64/ucrt64/include/qt6/QtCore/qrefcount.h \

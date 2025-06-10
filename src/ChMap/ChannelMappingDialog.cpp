@@ -78,7 +78,6 @@
                     }
                 });
         loadAndShowDialog(); //Load lại UI sau khi mở
-        applyModeFromConfig(); //Ẩn UI nếu đang chế độ offline
     }
 
     bool ChannelMappingDialog::loadAndShowDialog() {
@@ -144,6 +143,7 @@
 
         // Setup file watcher after confirming files exist
         setupFileWatcher();
+        applyModeFromConfig();
 
         return true;
     }
@@ -744,13 +744,10 @@ void ChannelMappingDialog::setupFileWatcher() {
     QString ssetupPath = QDir(dataPath).filePath("SsetUp.cfg");
     if (QFile::exists(ssetupPath)) {
         fileWatcher->addPath(ssetupPath);
-        qDebug() << "Started watching:" << ssetupPath;
     }
 }
 
 void ChannelMappingDialog::onFileChanged(const QString& path) {
-    qDebug() << "File changed detected:" << path;
-    
     // Small delay to ensure file is completely written
     QTimer::singleShot(100, this, [this, path]() {
         // Re-add the file to the watcher as it might have been recreated

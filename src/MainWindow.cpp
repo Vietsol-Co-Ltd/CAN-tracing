@@ -29,8 +29,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
         wantLoadConfig = true;
     } else if (cfgFile.exists() && cfgFile.size() > 0) {
         QMessageBox msgBox;
-        msgBox.setWindowTitle("Do you want to reload lastused?");
-        msgBox.setText("Bạn có muốn giữ lại cấu hình này không?");
+        msgBox.setWindowTitle("CAN Tracing");
+        msgBox.setText("The last used configuration contained unsaved changes and was saved automatically. Would you like to restore those changes?");
         msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
         msgBox.setDefaultButton(QMessageBox::Yes);
 
@@ -167,10 +167,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
         progressBar->setRange(0, 100);
         progressBar->setValue(100);
         button->setText("🛑");
-        
-        // Display messages in trace window
-        traceWindow->setMessages(g_canMessages);
-        
+
+      
         // Switch to trace tab
         tabWidget->setCurrentWidget(traceWindow);
         

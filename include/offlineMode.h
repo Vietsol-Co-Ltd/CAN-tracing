@@ -1,6 +1,8 @@
-#ifndef OFFLINEMODE_H
-#define OFFLINEMODE_H
+// offlineMode.h
+#pragma once
+#include <vector>
+#include "CanMessage.h"
 
 void startOfflineMode();
+void startOfflineModeData(const QString& text);
 
-#endif // OFFLINEMODE_H

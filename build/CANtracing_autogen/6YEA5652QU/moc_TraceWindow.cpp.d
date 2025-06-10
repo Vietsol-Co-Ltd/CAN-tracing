@@ -1,6 +1,6 @@
 C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_TraceWindow.cpp: C:/TOOL/CANtracing/include/TraceWindow.h \
   C:/tool/cantracing/build/CANtracing_autogen/moc_predefs.h \
-  C:/TOOL/CANtracing/lblf_reader/CanMessage.hpp \
+  C:/TOOL/CANtracing/lblf_reader/CanMessage.h \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
   C:/msys64/ucrt64/include/_mingw_off_t.h \

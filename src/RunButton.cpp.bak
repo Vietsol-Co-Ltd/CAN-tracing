@@ -1,0 +1,77 @@
+#include "RunButton.h"
+#include "common_includes.h"
+#include "onlineMode.h"
+#include "offlineMode.h"
+#include "canlog_global.h"            // << THÊM DÒNG NÀY
+#include "TraceWindow.h" 
+
+extern TraceWindow* globalTraceWindow;
+
+QProcess* debugTerminal = nullptr;
+
+RunButton::RunButton(QObject* parent) : QObject(parent) {
+    debugTerminal = new QProcess(this);
+
+    #ifdef Q_OS_WIN
+    debugTerminal->setProgram("cmd.exe");
+    debugTerminal->setArguments({"/K", "echo Debug Terminal && echo ================"});
+    #else
+    debugTerminal->setProgram("xterm");
+    debugTerminal->setArguments({"-T", "Debug Terminal", "-e", "bash"});
+    #endif
+}
+
+void RunButton::writeToTerminal(const QString& message) {
+    if (debugTerminal && debugTerminal->state() == QProcess::Running) {
+        debugTerminal->write((message + "\n").toLocal8Bit());
+    }
+}
+
+void RunButton::handleRunButtonClick() {
+    if (!debugTerminal || debugTerminal->state() != QProcess::Running) {
+        debugTerminal->start();
+    }
+
+    writeToTerminal("=== Starting RunButton Operation ===");
+
+    QString dataPath = QDir::currentPath();
+    if (dataPath.endsWith("build")) {
+        dataPath = QDir(dataPath).filePath("../data");
+    } else {
+        dataPath = QDir(dataPath).filePath("data");
+    }
+
+    writeToTerminal("Data path: " + dataPath);
+
+    QString msetupPath = QDir(dataPath).filePath("MsetUp.cfg");
+    QSettings msetup(msetupPath, QSettings::IniFormat);
+
+    writeToTerminal("Reading MsetUp.cfg: " + msetupPath);
+    writeToTerminal("File exists: " + QString(QFile::exists(msetupPath) ? "Yes" : "No"));
+
+    msetup.beginGroup("Buttons");
+    bool onlineModeChecked = msetup.value("OnlineChecked", false).toBool();
+    bool offlineModeChecked = msetup.value("OfflineChecked", false).toBool();
+    msetup.endGroup();
+
+    if (!onlineModeChecked && !offlineModeChecked) {
+        emit errorOccurred("Please select Online or Offline mode in Measurement Setup tab first!");
+        return;
+    }
+
+    if (onlineModeChecked) {
+        writeToTerminal("Switching to Online Mode...");
+        startOnlineMode();
+        extern QVector<CanMessage> onlineCanLog;
+        globalCanLog = &onlineCanLog;
+    } else if (offlineModeChecked) {
+        writeToTerminal("Switching to Offline Mode...");
+        startOfflineMode();
+        extern QVector<CanMessage> offlineCanLog;
+        globalCanLog = &offlineCanLog;
+    }
+
+    if (globalTraceWindow) {
+        globalTraceWindow->startTraceLogging();  // bắt đầu hiển thị log trong Trace
+    }
+}

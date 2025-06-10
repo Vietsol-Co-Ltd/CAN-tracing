@@ -60,7 +60,7 @@ void OfflineModeWindow::setupUI() {
         "    border: none; "
         "    border-bottom: 1px solid #E0E0E0; "
         "    font-weight: bold; "
-        "}"
+        "} "
     );
 
     // Create buttons
@@ -75,22 +75,17 @@ void OfflineModeWindow::setupUI() {
     buttonLayout->addWidget(removeButton);
     buttonLayout->addWidget(clearButton);
 
-    // Add drop zone label
-    QLabel* dropLabel = new QLabel("Drag and drop .asc, .blf, or .mdf4 files here", this);
-    dropLabel->setAlignment(Qt::AlignCenter);
-    dropLabel->setStyleSheet(
-        "QLabel {"
-        "    color: #666666;"
-        "    padding: 20px;"
-        "    border: 2px dashed #CCCCCC;"
-        "    border-radius: 5px;"
-        "    background-color: #F8F9FA;"
-        "}"
-    );
-
-    mainLayout->addWidget(dropLabel);
     mainLayout->addWidget(fileTable);
     mainLayout->addLayout(buttonLayout);
+}
+
+void OfflineModeWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Delete) {
+        event->accept();
+    } else {
+        QWidget::keyPressEvent(event);
+    }
 }
 
 void OfflineModeWindow::dragEnterEvent(QDragEnterEvent *event) {
@@ -104,18 +99,29 @@ void OfflineModeWindow::dragEnterEvent(QDragEnterEvent *event) {
         }
         if (hasValidFile) {
             event->acceptProposedAction();
+        } else {
+            event->ignore();
         }
+    } else {
+        event->ignore();
     }
 }
 
 void OfflineModeWindow::dropEvent(QDropEvent *event) {
+    bool added = false;
     for (const QUrl& url : event->mimeData()->urls()) {
         QString filePath = url.toLocalFile();
         if (isValidFileType(filePath)) {
             addFile(filePath);
+            added = true;
         }
     }
-    saveConfig();
+    if (added) {
+        saveConfig();
+        event->acceptProposedAction();
+    } else {
+        event->ignore();
+    }
 }
 
 void OfflineModeWindow::reloadConfiguration() {
@@ -286,16 +292,4 @@ void OfflineModeWindow::saveConfig() {
         settings.setValue("lastModified", files[i].lastModified);
     }
     settings.endArray();
-    settings.sync();
-}
-
-void OfflineModeWindow::closeEvent(QCloseEvent *event) {
-    // Stop the refresh timer
-    refreshTimer->stop();
-    
-    // Save the current configuration
-    saveConfig();
-    
-    // Accept the close event
-    event->accept();
 }

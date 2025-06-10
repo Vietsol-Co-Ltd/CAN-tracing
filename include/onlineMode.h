@@ -1,6 +1,7 @@
-#ifndef ONLINEMODE_H
-#define ONLINEMODE_H
+// onlineMode.h
+#pragma once
+#include <vector>
+#include "CanMessage.h"
 
 void startOnlineMode();
-
-#endif // ONLINEMODE_H
+void startOnlineModeData(const QString& text);

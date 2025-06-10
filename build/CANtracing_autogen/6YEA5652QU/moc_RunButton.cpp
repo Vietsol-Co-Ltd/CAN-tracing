@@ -44,8 +44,7 @@ template <> constexpr inline auto RunButton::qt_create_metaobjectdata<qt_meta_ta
         "blfFileLoaded",
         "messageCount",
         "errorOccurred",
-        "error",
-        "handleRunButtonClick"
+        "error"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -59,8 +58,6 @@ template <> constexpr inline auto RunButton::qt_create_metaobjectdata<qt_meta_ta
         QtMocHelpers::SignalData<void(const QString &)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 6 },
         }}),
-        // Slot 'handleRunButtonClick'
-        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -87,7 +84,6 @@ void RunButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 0: _t->realTimeLoggingStarted(); break;
         case 1: _t->blfFileLoaded((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->errorOccurred((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 3: _t->handleRunButtonClick(); break;
         default: ;
         }
     }
@@ -120,14 +116,14 @@ int RunButton::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }

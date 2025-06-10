@@ -33,8 +33,8 @@ void TraceWindow::setupUI() {
     messageTable->setStyleSheet(
         "QTableWidget { "
         "    background-color: white; "
-        "    border: 1px solid #E0E0E0; "
-        "    gridline-color: #F0F0F0; "
+        "    border: 1px solid #CCCCCC; "
+        "    gridline-color: #A0A0A0; "
         "} "
         "QTableWidget::item { "
         "    padding: 5px; "
@@ -46,8 +46,7 @@ void TraceWindow::setupUI() {
         "QHeaderView::section { "
         "    background-color: #F5F5F5; "
         "    padding: 5px; "
-        "    border: none; "
-        "    border-bottom: 1px solid #E0E0E0; "
+        "    border: 1px solid #CCCCCC; "
         "    font-weight: bold; "
         "}"
     );
@@ -107,6 +106,11 @@ void TraceWindow::loadMoreMessages() {
     for (; currentMessageIndex < endIndex; ++currentMessageIndex) {
         addMessage(allMessages[currentMessageIndex]);
     }
+}
+
+void TraceWindow::startTraceLogging() {
+    // TODO: Viết code thực hiện logging tại đây
+    qDebug() << "Trace logging started.";
 }
 
 void TraceWindow::addMessage(const CanMessage& msg) {

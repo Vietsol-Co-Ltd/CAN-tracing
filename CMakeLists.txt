@@ -9,6 +9,7 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets SerialBus)
 
 # === Include directories ===
+include_directories(${CMAKE_SOURCE_DIR}/lblf_reader)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/data)
 include_directories(${CMAKE_SOURCE_DIR})
@@ -20,9 +21,6 @@ qt6_add_resources(RESOURCES_ADDED resource.qrc)
 
 # Set SKIP_AUTOGEN for lblf header files
 set_source_files_properties(
-    lblf_reader/lblf/blf_reader.hh
-    lblf_reader/lblf/blf_structs.hh
-    lblf_reader/lblf/utils.hh
     PROPERTIES SKIP_AUTOGEN ON
 )
 
@@ -42,8 +40,10 @@ add_executable(CANtracing
     src/Msetup/OnlineMode/onlineMode.cpp
     src/ChMap/HwMappingWindow.cpp
     src/ChMap/ChannelMappingDialog.cpp
-    lblf_reader/BlfReader.cpp
-    lblf_reader/lblf/blf_reader.cpp
+    src/GlobalData.cpp
+
+    lblf_reader/CanMessage.h
+
     include/ChannelMappingDialog.h
     include/HwMappingWindow.h
     include/RunButton.h
@@ -60,11 +60,7 @@ add_executable(CANtracing
     include/ClickableLabel.h
     include/LoadingOverlay.h
     include/common_includes.h
-    lblf_reader/CanMessage.hpp
-    lblf_reader/BlfReader.hpp
-    lblf_reader/lblf/blf_reader.hh
-    lblf_reader/lblf/blf_structs.hh
-    lblf_reader/lblf/utils.hh
+    include/GlobalData.h
     app.rc
     ${RESOURCES_ADDED}
 )

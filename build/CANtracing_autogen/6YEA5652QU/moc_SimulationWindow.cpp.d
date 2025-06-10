@@ -1,5 +1,5 @@
-C:/TOOL/CANtracing/build/CANtracing_autogen/6YEA5652QU/moc_SimulationWindow.cpp: C:/TOOL/CANtracing/include/SimulationWindow.h \
-  C:/TOOL/CANtracing/build/CANtracing_autogen/moc_predefs.h \
+C:/tool/cantracing/build/CANtracing_autogen/6YEA5652QU/moc_SimulationWindow.cpp: C:/TOOL/CANtracing/include/SimulationWindow.h \
+  C:/tool/cantracing/build/CANtracing_autogen/moc_predefs.h \
   C:/TOOL/CANtracing/include/ClickableLabel.h \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \
