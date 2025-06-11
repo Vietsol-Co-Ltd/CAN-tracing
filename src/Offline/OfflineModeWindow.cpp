@@ -259,7 +259,7 @@ void OfflineModeWindow::clearAllFiles() {
 }
 
 void OfflineModeWindow::loadConfig() {
-    QSettings settings("../data/OfflineMode.cfg", QSettings::IniFormat);
+    QSettings settings(QDir::currentPath() + "/../data/OfflineMode.cfg", QSettings::IniFormat);
     files.clear();
     
     int size = settings.beginReadArray("Files");
@@ -279,7 +279,7 @@ void OfflineModeWindow::loadConfig() {
 }
 
 void OfflineModeWindow::saveConfig() {
-    QSettings settings("../data/OfflineMode.cfg", QSettings::IniFormat);
+    QSettings settings(QDir::currentPath() + "/../data/OfflineMode.cfg", QSettings::IniFormat);
     settings.clear();
     
     settings.beginWriteArray("Files");

@@ -36,11 +36,7 @@ void RunButton::handleRunButtonClick() {
     writeToTerminal("=== Starting RunButton Operation ===");
 
     QString dataPath = QDir::currentPath();
-    if (dataPath.endsWith("build")) {
         dataPath = QDir(dataPath).filePath("../data");
-    } else {
-        dataPath = QDir(dataPath).filePath("data");
-    }
 
     writeToTerminal("Data path: " + dataPath);
 
